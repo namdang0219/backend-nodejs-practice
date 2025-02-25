@@ -1,0 +1,17 @@
+{
+  "name": "backend-nodejs-practice",
+  "version": "1.0.0",
+  "description": "learining backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC"
+}
