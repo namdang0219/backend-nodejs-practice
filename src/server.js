@@ -1,8 +1,10 @@
 const express = require("express");
 const path = require("path");
+require("dotenv").config();
 
 const app = express(); // Define app
-const port = 8080;
+const port = process.env.PORT || 8888;
+const hostname = process.env.HOST_NAME;
 
 app.get("/", (req, res) => {
 	res.send("Hello, World!");
@@ -16,9 +18,10 @@ app.set("views", path.join(__dirname, "views"));
  */
 app.set("view engine", "ejs");
 
+// static files
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/hello-ejs", (req, res) => {
-	console.log(path.join(__dirname, "views1"));
-	console.log(path.join(__dirname, "2"));
 	res.render("sample.ejs");
 });
 
@@ -30,6 +33,6 @@ app.get("/namdang", (req, res) => {
 	res.send("<h1>namdang here</h1>");
 });
 
-app.listen(port, () => {
+app.listen(port, hostname, () => {
 	console.log("listening on port " + port);
 });
