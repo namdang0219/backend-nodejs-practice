@@ -13,24 +13,24 @@
 
 		<div class="table-container">
 			<h2 class="title">All users</h2>
+			<%= JSON.stringify(listUsers) %>
 			<table id="customers">
 				<tr>
 					<th>ID</th>
 					<th>Email</th>
 					<th>Name</th>
 					<th>City</th>
+					<th>Action</th>
 				</tr>
 				<tr>
 					<td>Alfreds Futterkiste</td>
 					<td>Maria Anders</td>
 					<td>Germany</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Berglunds snabbköp</td>
-					<td>Christina Berglund</td>
-					<td>Sweden</td>
-					<td></td>
+					<td>Berlin</td>
+					<td>
+						<button>Edit</button>
+						<button>Delete</button>
+					</td>
 				</tr>
 			</table>
 		</div>
