@@ -14,7 +14,7 @@ configViewEngine(app);
 app.use(express.json()); // for json
 app.use(express.urlencoded({ extended: true })); // for urlencoded
 
-app.use("/", webRoutes);
+app.use("/", webRoutes); 
 /**
  * first parameter is default path before 2nd parameter
  * used for api versioning
