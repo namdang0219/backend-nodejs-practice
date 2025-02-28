@@ -1,7 +1,7 @@
 const connection = require("../config/database");
 
 const getHomepage = (req, res) => {
-    return res.render('home.ejs')
+	return res.render("home.ejs");
 };
 
 const getHelloEJS = (req, res) => {
@@ -12,4 +12,9 @@ const getNamdang = (req, res) => {
 	res.send("<h1>namdang here</h1>");
 };
 
-module.exports = { getHomepage, getHelloEJS, getNamdang };
+const postCreateUser = (req, res) => {
+    console.log(req.body)
+	res.send("<h1>create user</h1>");
+};
+
+module.exports = { getHomepage, getHelloEJS, getNamdang, postCreateUser };

@@ -10,6 +10,10 @@ const hostname = process.env.HOST_NAME;
 // config template engine
 configViewEngine(app);
 
+// config req.body
+app.use(express.json()); // for json
+app.use(express.urlencoded({ extended: true })); // for urlencoded
+
 app.use("/", webRoutes);
 /**
  * first parameter is default path before 2nd parameter
