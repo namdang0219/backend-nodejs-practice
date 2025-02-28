@@ -1,11 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3001
+const express = require("express");
+const app = express();
+const router = require("./router/api");
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const hostname = "localhost";
+const port = 3001;
+
+app.use("/admin/api/v1", router);
+app.use("/api/v1", router);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+	console.log(`Example app listening on port ${hostname}:${port}`);
+});
