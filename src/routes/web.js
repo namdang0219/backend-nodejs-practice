@@ -3,12 +3,11 @@ const router = express.Router();
 
 const {
 	getHomepage,
-	getHelloEJS,
-	getNamdang,
 	postCreateUser,
 	getCreatePage,
-    getUpdatePage,
-    postEditUser
+	getUpdatePage,
+	postEditUser,
+	getDeleteUser,
 } = require("./../controllers/homeController");
 
 // router.Method("/route", handlers)
@@ -16,13 +15,10 @@ const {
 router.get("/", getHomepage);
 router.get("/create", getCreatePage);
 router.get("/update/:userId", getUpdatePage);
-
-router.get("/hello-ejs", getHelloEJS);
-router.get("/namdang", getNamdang);
+router.get("/delete-user/:userId", getDeleteUser);
 
 // method POST
 router.post("/create-user", postCreateUser);
-router.post("/edit-user/:userId", postEditUser);
-
+router.post("/edit-user", postEditUser);
 
 module.exports = router;

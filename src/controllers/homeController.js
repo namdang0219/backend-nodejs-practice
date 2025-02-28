@@ -1,5 +1,11 @@
 const connection = require("../config/database");
-const { getAllUsers, getUserById } = require("../services/CRUDService");
+const {
+	getAllUsers,
+	getUserById,
+	updateUserById,
+	createUser,
+	deleteUserById,
+} = require("../services/CRUDService");
 
 const getHomepage = async (req, res) => {
 	const results = await getAllUsers();
@@ -16,44 +22,30 @@ const getUpdatePage = async (req, res) => {
 	return res.render("edit.ejs", { userEdit: user });
 };
 
-const getHelloEJS = (req, res) => {
-	res.render("sample.ejs");
-};
-
-const getNamdang = (req, res) => {
-	res.send("<h1>namdang here</h1>");
-};
-
 const postCreateUser = async (req, res) => {
 	let { email, name, city } = req.body;
-
-	const [results, fields] = await connection.query(
-		`INSERT INTO Users (email, name, city)
-	            VALUES (?, ?, ?);`,
-		[email, name, city]
-	);
-	res.send("Create user successfully");
+	await createUser(email, name, city);
+	res.redirect("/");
 };
 
 const postEditUser = async (req, res) => {
-	let { email, name, city } = req.body;
-	let userId = req.params.userId;
+	let { email, name, city, id } = req.body;
+	await updateUserById(email, name, city, id);
+	res.redirect("/");
+};
 
-	const [results, fields] = await connection.query(
-		`UPDATE Users
-		SET email = ?, name= ?, city = ?
-		WHERE id = ?;`,
-		[email, name, city, userId]
-	);
-	res.send("Update user successfully");
+const getDeleteUser = async (req, res) => {
+	const { userId } = req.params;
+	await deleteUserById(userId);
+	res.redirect("/");
 };
 
 module.exports = {
 	getHomepage,
 	getCreatePage,
-	getHelloEJS,
-	getNamdang,
 	postCreateUser,
 	getUpdatePage,
 	postEditUser,
+	createUser,
+	getDeleteUser,
 };
