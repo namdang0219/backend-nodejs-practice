@@ -1,22 +1,7 @@
 const connection = require("../config/database");
 
 const getHomepage = (req, res) => {
-	// process data
-	// call model
-	let users = [];
-
-	const sql = "SELECT * From Users";
-
-	connection.query(sql, (err, rows, fields) => {
-		if (err instanceof Error) {
-			console.log(err);
-			return;
-		}
-		users = rows;
-		console.log(">>> rows", rows);
-		console.log("🚀 ~ connection.query ~ users:", users);
-		res.send(JSON.stringify(users));
-	});
+    return res.render('home.ejs')
 };
 
 const getHelloEJS = (req, res) => {
