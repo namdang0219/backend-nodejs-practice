@@ -21,9 +21,9 @@
 					<th>City</th>
 					<th>Action</th>
 				</tr>
-				<% listUsers.length > 0 && listUsers.map((user) => { %>
+				<% listUsers.length > 0 && listUsers.map((user, index) => { %>
 				<tr>
-					<td><%= user.id %></td>
+					<td><%= index + 1 %></td>
 					<td><%= user.email %></td>
 					<td><%= user.name %></td>
 					<td><%= user.city %></td>

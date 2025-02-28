@@ -47,5 +47,5 @@ module.exports = {
 	getUpdatePage,
 	postEditUser,
 	createUser,
-	getDeleteUser,
+	getDeleteUser, 
 };
