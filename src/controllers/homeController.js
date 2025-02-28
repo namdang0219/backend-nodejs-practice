@@ -4,6 +4,10 @@ const getHomepage = (req, res) => {
 	return res.render("home.ejs");
 };
 
+const getCreatePage = (req, res) => {
+	return res.render("create.ejs");
+};
+
 const getHelloEJS = (req, res) => {
 	res.render("sample.ejs");
 };
@@ -12,18 +16,21 @@ const getNamdang = (req, res) => {
 	res.send("<h1>namdang here</h1>");
 };
 
-const postCreateUser = (req, res) => {
+const postCreateUser = async (req, res) => {
 	let { email, name, city } = req.body;
-
-	connection.query(
+    
+	const [results, fields] = await connection.query(
 		`INSERT INTO Users (email, name, city)
 	            VALUES (?, ?, ?);`,
-		[email, name, city],
-		(error, results) => {
-			console.log(results);
-			res.send("User created successfully");
-		}
+		[email, name, city]
 	);
+    res.send("Create user successfully")
 };
 
-module.exports = { getHomepage, getHelloEJS, getNamdang, postCreateUser };
+module.exports = {
+	getHomepage,
+	getCreatePage,
+	getHelloEJS,
+	getNamdang,
+	postCreateUser,
+};

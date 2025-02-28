@@ -7,47 +7,32 @@
 	</head>
 	<body>
 		<div class="topnav">
-			<a class="active" href="#home">Home</a>
-			<a href="#news">News</a>
-			<a href="#contact">Contact</a>
-			<a href="#about">About</a>
+			<a class="active" href="/">Home</a>
+			<a href="/create">Create</a>
 		</div>
 
-		<div class="form">
-			<form action="/create-user" method="POST">
-				<fieldset>
-					<legend>Infomation:</legend>
-					<div class="input-group">
-						<label for="email">Email: </label>
-						<input
-							type="text"
-							id="email"
-							name="email"
-							placeholder="Your email..."
-						/>
-					</div>
-					<div class="input-group">
-						<label for="name">Name: </label>
-						<input
-							type="text"
-							id="name"
-							name="name"
-							placeholder="Your name..."
-						/>
-					</div>
-					<div class="input-group">
-						<label for="city">City: </label>
-						<input
-							type="text"
-							id="city"
-							name="city"
-							placeholder="Your city..."
-						/>
-					</div>
-
-					<button>Save</button>
-				</fieldset>
-			</form>
+		<div class="table-container">
+			<h2 class="title">All users</h2>
+			<table id="customers">
+				<tr>
+					<th>ID</th>
+					<th>Email</th>
+					<th>Name</th>
+					<th>City</th>
+				</tr>
+				<tr>
+					<td>Alfreds Futterkiste</td>
+					<td>Maria Anders</td>
+					<td>Germany</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Berglunds snabbköp</td>
+					<td>Christina Berglund</td>
+					<td>Sweden</td>
+					<td></td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>

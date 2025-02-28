@@ -44,7 +44,6 @@
 	padding-block: 10px;
 }
 
-
 fieldset {
 	padding: 20px;
 	border-radius: 20px;
@@ -61,4 +60,44 @@ button {
 	padding-inline: 8px;
 	padding-block: 4px;
 	cursor: pointer;
+}
+
+#customers {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+/* home table  */
+#customers td,
+#customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #04aa6d;
+	color: white;
+}
+
+.table-container {
+	padding: 20px;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	margin-bottom: 20px;
 }
