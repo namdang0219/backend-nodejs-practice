@@ -13,8 +13,17 @@ const getNamdang = (req, res) => {
 };
 
 const postCreateUser = (req, res) => {
-    console.log(req.body)
-	res.send("<h1>create user</h1>");
+	let { email, name, city } = req.body;
+
+	connection.query(
+		`INSERT INTO Users (email, name, city)
+	            VALUES (?, ?, ?);`,
+		[email, name, city],
+		(error, results) => {
+			console.log(results);
+			res.send("User created successfully");
+		}
+	);
 };
 
 module.exports = { getHomepage, getHelloEJS, getNamdang, postCreateUser };
