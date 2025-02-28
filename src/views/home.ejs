@@ -13,7 +13,6 @@
 
 		<div class="table-container">
 			<h2 class="title">All users</h2>
-			<%= JSON.stringify(listUsers) %>
 			<table id="customers">
 				<tr>
 					<th>ID</th>
@@ -22,16 +21,18 @@
 					<th>City</th>
 					<th>Action</th>
 				</tr>
+				<% listUsers.length > 0 && listUsers.map((user) => { %>
 				<tr>
-					<td>Alfreds Futterkiste</td>
-					<td>Maria Anders</td>
-					<td>Germany</td>
-					<td>Berlin</td>
+					<td><%= user.id %></td>
+					<td><%= user.email %></td>
+					<td><%= user.name %></td>
+					<td><%= user.city %></td>
 					<td>
 						<button>Edit</button>
 						<button>Delete</button>
 					</td>
 				</tr>
+				<% }) %>
 			</table>
 		</div>
 	</body>
